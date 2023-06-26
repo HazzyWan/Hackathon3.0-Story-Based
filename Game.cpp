@@ -25,7 +25,7 @@ Game::Game(const string& playerName) :
     exitHatch.addExit("west", "SecretRoom");
 
     // Insert items into player's inventory
-    player.getInventory().insert(new Item("Sword", "A shiny sword"));
+    player.getInventory().insert(new Item("Note", "Greetings mister, I know you might be confused as to why you are here. I can only tell you that someone \nwanted you dead. You will be sent to the Gulag tomorrow.Find the archives and look for clues of the \nperson who did this to you.There is a key you must find in the next room. This already puts my life on the line."));
 
     // Insert items into room's inventory
     treasureRoom.getInventory().insert(new Item("Key", "A golden key"));
@@ -34,6 +34,29 @@ Game::Game(const string& playerName) :
 void Game::run() {
     // Game loop
     string password;
+    //An ASCII art of a treasure
+    string symbolPattern = R"(
+*******************************************************************************
+          |                   |                  |                     |
+ _________|________________.=""_;=.______________|_____________________|_______
+|                   |  ,-"_,=""     `"=.|                  |
+|___________________|__"=._o`"-._        `"=.______________|___________________
+          |                `"=._o`"=._      _`"=._                     |
+ _________|_____________________:=._o "=._."_.-="'"=.__________________|_______
+|                   |    __.--" , ; `"=._o." ,-"""-._ ".   |
+|___________________|_._"  ,. .` ` `` ,  `"-._"-._   ". '__|___________________
+          |           |o`"=._` , "` `; .". ,  "-._"-._; ;              |
+ _________|___________| ;`-.o`"=._; ." ` '`."\` . "-._ /_______________|_______
+|                   | |o;    `"-.o`"=._``  '` " ,__.--o;   |
+|___________________|_| ;     (#) `-.o `"=.`_.--"_o.-; ;___|___________________
+____/______/______/___|o;._    "      `".o|o_.--"    ;o;____/______/______/____
+/______/______/______/_"=._o--._        ; | ;        ; ;/______/______/______/_
+____/______/______/______/__"=._o--._   ;o|o;     _._;o;____/______/______/____
+/______/______/______/______/____"=._o._; | ;_.--"o.--"_/______/______/______/_
+____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
+/______/______/______/______/______/______/______/______/______/______/______/_
+*******************************************************************************      
+)";
     while (true) {
         // Print player's name, current location, and inventory
         cout << "====================================================================================================================== " << endl;
@@ -49,6 +72,7 @@ void Game::run() {
         if (currentLocation == "StartRoom") {
             cout << startRoom.getDescription() << endl;
         } else if (currentLocation == "TreasureRoom") {
+        	cout << symbolPattern << endl;
             cout << treasureRoom.getDescription() << endl;
             cout << "You see a key in the room. Do you want to retrieve it? (yes/no): ";
             string retrieveKey;
@@ -104,11 +128,19 @@ void Game::run() {
             string newRoom;
             if (currentLocation == "StartRoom") {
                 if (startRoom.hasExit(input)) {
-                    newRoom = startRoom.getExit(input);
+                  newRoom = startRoom.getExit(input);
+              } else {
+                  if (input == "south") {
+                    cout << "You see a pile of old papers scattered on the floor, but there is no exit in that direction." << endl;
+                } else if (input == "west") {
+                    cout << "The wall to the west is covered in dirt and grime, with no visible exit." << endl;
+                } else if (input == "east") {
+                    cout << "A solid stone wall blocks your path to the east. There is no exit in that direction." << endl;
                 } else {
                     cout << "There is no exit in that direction." << endl;
-                    continue;
                 }
+                  continue;
+              }
             } else if (currentLocation == "TreasureRoom") {
                 if (treasureRoom.hasExit(input)) {
                     newRoom = treasureRoom.getExit(input);
