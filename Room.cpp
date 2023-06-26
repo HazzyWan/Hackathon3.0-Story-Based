@@ -1,4 +1,5 @@
 #include "Room.h"
+using namespace std;
 
 Room::Room(const std::string& roomDescription) : description(roomDescription) {
     // Initialize exits to empty strings
@@ -7,11 +8,13 @@ Room::Room(const std::string& roomDescription) : description(roomDescription) {
     }
 }
 
-std::string Room::getDescription() const {
+string Room::getDescription() const {
     return description;
 }
 
-void Room::addExit(const std::string& direction, const std::string& room) {
+void Room::addExit(const string& direction, const string& room) {
+    // Add an exit to the room in the specified direction
+    // The direction can be "north", "south", "east", or "west"
     if (direction == "north") {
         exits[0] = room;
     } else if (direction == "south") {
@@ -23,7 +26,9 @@ void Room::addExit(const std::string& direction, const std::string& room) {
     }
 }
 
-bool Room::hasExit(const std::string& direction) const {
+bool Room::hasExit(const string& direction) const {
+    // Check if the room has an exit in the specified direction
+    // Return true if an exit exists, false otherwise
     if (direction == "north") {
         return exits[0] != "";
     } else if (direction == "south") {
@@ -36,7 +41,9 @@ bool Room::hasExit(const std::string& direction) const {
     return false;
 }
 
-std::string Room::getExit(const std::string& direction) const {
+string Room::getExit(const string& direction) const {
+    // Get the room name of the exit in the specified direction
+    // Return the room name if the exit exists, an empty string otherwise
     if (direction == "north") {
         return exits[0];
     } else if (direction == "south") {
@@ -50,9 +57,12 @@ std::string Room::getExit(const std::string& direction) const {
 }
 
 LinkedList& Room::getInventory() {
+    // Get the inventory of the room
     return inventory;
 }
 
 void Room::setInventory(const LinkedList& newInventory) {
+    // Set the inventory of the room to the specified inventory
     inventory = newInventory;
 }
+

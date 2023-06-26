@@ -1,32 +1,37 @@
 #include "LinkedList.h"
 #include <iostream>
+using namespace std;
 
-Item::Item(const std::string& itemName, const std::string& itemDescription) :
+// Item class constructor
+Item::Item(const string& itemName, const string& itemDescription) :
     name(itemName), description(itemDescription) {}
-
-std::string Item::getName() const {
+// Get the name of the item
+string Item::getName() const {
     return name;
 }
-
-std::string Item::getDescription() const {
+// Get the description of the item
+string Item::getDescription() const {
     return description;
 }
-
+// LinkedList class constructor
 LinkedList::LinkedList() : head(nullptr) {}
 
+// Insert a new item into the linked list
 void LinkedList::insert(Item* newItem) {
+    // Create a new node
     Node* newNode = new Node;
     newNode->data = newItem;
     newNode->next = head;
     head = newNode;
 }
-
+// Remove an item from the linked list
 void LinkedList::remove(Item* itemToRemove) {
     Node* current = head;
     Node* previous = nullptr;
 
     while (current != nullptr) {
         if (current->data == itemToRemove) {
+            // Remove the node from the list
             if (previous == nullptr) {
                 head = current->next;
             } else {
@@ -39,26 +44,28 @@ void LinkedList::remove(Item* itemToRemove) {
         current = current->next;
     }
 }
-
-Item* LinkedList::search(const std::string& itemName) {
+// Search for an item in the linked list by its name
+Item* LinkedList::search(const string& itemName) {
     Node* current = head;
 
     while (current != nullptr) {
         if (current->data->getName() == itemName) {
+            // Item found, return a pointer to it
             return current->data;
         }
         current = current->next;
     }
-
+    // Item not found
     return nullptr;
 }
-
+// Display the items in the linked list
 void LinkedList::display() {
     Node* current = head;
 
     while (current != nullptr) {
-        std::cout << "Item: " << current->data->getName() << std::endl;
-        std::cout << "Description: " << current->data->getDescription() << std::endl;
+        // Print item name and description
+        cout << "Item: " << current->data->getName() << endl;
+        cout << "Description: " << current->data->getDescription() << endl;
         current = current->next;
     }
 }

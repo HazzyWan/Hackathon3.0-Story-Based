@@ -6,13 +6,13 @@
 
 using namespace std;
 
-Game::Game(const std::string& playerName) :
+Game::Game(const string& playerName) :
     player(playerName, "StartRoom"),
     startRoom("The room is consumed by darkness, with only faint traces of light seeping through tiny cracks in the\nancient stone walls. The air hangs heavy with a damp, musty scent, and a chilling coldness\nemanates from the rough, unyielding floor, intensifying the sense of isolation and confinement."),
     treasureRoom("You found a room full of treasures."),
     lockedRoom("You entered a locked room."),
     secretRoom("You discovered a hidden secret room."),
-    exitHatch("You finally escape the place. Congratulations!")
+    exitHatch("")
 {
     // Add exits to the rooms
     startRoom.addExit("north", "TreasureRoom");
@@ -22,6 +22,7 @@ Game::Game(const std::string& playerName) :
     lockedRoom.addExit("north", "SecretRoom");
     secretRoom.addExit("south", "LockedRoom");
     secretRoom.addExit("east", "ExitHatch");
+    exitHatch.addExit("west", "SecretRoom");
 
     // Insert items into player's inventory
     player.getInventory().insert(new Item("Sword", "A shiny sword"));
@@ -32,6 +33,7 @@ Game::Game(const std::string& playerName) :
 
 void Game::run() {
     // Game loop
+    string password;
     while (true) {
         // Print player's name, current location, and inventory
         cout << "====================================================================================================================== " << endl;
@@ -73,10 +75,23 @@ void Game::run() {
             cout << secretRoom.getDescription() << endl;
         } else if (currentLocation == "ExitHatch") {
             cout << exitHatch.getDescription() << endl;
-            break;
-        }
+            cout << "To open the Exit Hatch, enter the password: ";// Must enter the correct password so the player can proceed to escape
 
+            cin >> password;
+
+            if (password == "MELODY") {
+                cout << "Congratulations! You have entered the correct password. You successfully escaped!" << endl;
+                break;
+            }else{
+	            cout << "Wrong password. The Exit Hatch remains locked." << endl;//Wrong password will cause the player to choose which direction to explore again.
+                system("pause");
+                system("cls"); 
+            }
+            
+        }
+        
         // Prompt for user input
+        cout << "---------------------------------------------------------------------------------------------------------------------- " << endl;
         cout << "Enter a direction to move (north, south, east, west) or 'quit' to exit the game: ";
         string input;
         cin >> input;
@@ -140,6 +155,7 @@ void Game::run() {
         } else {
             cout << "Invalid input. Please try again." << endl;
         }
+        
 
         cout << endl;
     }

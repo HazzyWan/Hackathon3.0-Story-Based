@@ -3,19 +3,21 @@
 
 #include "Player.h"
 #include "Room.h"
+using namespace std;
 
 class Game {
 private:
-    Player player;
-    Room startRoom;
-    Room treasureRoom;
-    Room lockedRoom;
-    Room secretRoom;
-    Room exitHatch;
+    Player player;           // Player object
+    Room startRoom;          // Start room object
+    Room treasureRoom;       // Treasure room object
+    Room lockedRoom;         // Locked room object
+    Room secretRoom;         // Secret room object
+    Room exitHatch;          // Exit hatch room object
 
 public:
-    Game(const std::string& playerName);  // Constructor
-    void run();
+    Game(const string& playerName);  // Constructor
+    void run();  // Main game loop
 };
 
 #endif  // GAME_H
+
