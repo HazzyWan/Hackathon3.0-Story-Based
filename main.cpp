@@ -16,10 +16,12 @@ int main() {
         cout <<     "    $$ |   $$ |  $$ |$$$$$$$$\\       $$$$$$$$\\ $$$$$$  |\\$$$$$$  |  $$ | "  <<endl;
         cout <<     "    \\__|   \\__|  \\__|\\________|      \\________|\\______/  \\______/   \\__| "  <<endl;
                                                                         
-        cout << "=============================== Main Menu ===============================" << endl;
-        cout << "\t\t\t\t1. Start Game" << endl;
-        cout << "\t\t\t\t2. Quit" << endl;
-        cout << "\t\t\t\tEnter your choice: ";
+        cout << "=============================== Main Menu ===============================" << endl<<endl;
+        cout << "\t\t\t    1. Start Game" << endl;
+        cout << "\t\t\t    2. Quit" << endl;
+        cout << "\t\t\t    3. Last Game History" << endl;
+
+        cout << "\t\t\t    Enter your choice: ";
 
         int choice;
         cin >> choice;
@@ -51,6 +53,12 @@ int main() {
                 quitGame = true;
                 break;
             }
+            case 3:{
+            	// THIS IS PLACEHOLDER. NOT IMPLEMENTED YET
+            	cout<<"Last Game History : \n\n";
+            	quitGame = true;
+				break;
+			}
             default: {
                 cout << "Invalid choice. Please try again." << endl;
                 break;
