@@ -1,2 +1,27 @@
-Player Name : sdjbadbd
+Player Name : KADA
 Current Location : StartRoom
+Player moved north to Hallway
+Player Name : KADA
+Current Location : Hallway
+Player moved east to ArchiveRoom
+Player Name : KADA
+Current Location : ArchiveRoom
+Player Name : KADA
+Current Location : ArchiveRoom
+Player moved west to Hallway
+Player Name : KADA
+Current Location : Hallway
+Player moved west to TreasureRoom
+Player Name : KADA
+Current Location : TreasureRoom
+Player moved south to LockedRoom
+Player Name : KADA
+Current Location : LockedRoom
+Player moved west to SecretRoom
+Player Name : KADA
+Current Location : SecretRoom
+Player moved south to TheMorgue
+Player Name : KADA
+Current Location : TheMorgue
+Player Name : KADA
+Current Location : TheMorgue

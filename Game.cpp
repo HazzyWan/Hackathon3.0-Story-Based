@@ -300,8 +300,28 @@ void Game::run() {
             	if(morgue.hasExit(input)){
             		newRoom = morgue.getExit(input);
 				}else{
-					cout<<"There is no exit in that direction."<<endl;
-					continue;
+					if(input == "west"){
+					  cout<<"You found a guard's diary..."<<endl;
+					  system("pause");
+					  cout<<"\"This place always gives me the chills. Several men have encountered monsters and ghosts this week alone.\nI know it helps to keep the prisoners here, but it still spooks us when we bump into one!\""<<endl;
+					  system("pause");
+					  system("cls");
+					  Scare();
+					  system("pause");
+					  system("cls");
+					  continue;
+					}
+					else if(input == "east"){
+						cout << "In the depths of despair, you stumble upon a tattered journal..." << endl;
+                        system("pause");
+                        cout << "\"My mind, once a sanctuary, now a prison of torment. Whispers consume my thoughts, twisting reality into a\nnightmarish dance. Shadows mock my sanity, lurking in every corner. The walls close in, confining me to this\nwretched abyss. I yearn for escape, for respite from the madness that engulfs me.\"" << endl;
+                        system("pause");
+					    system("cls");
+					    Scare2();
+					    system("pause");
+					    system("cls");
+					    continue;
+					}
 				}
 			}
 
