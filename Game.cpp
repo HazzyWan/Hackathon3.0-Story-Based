@@ -1,6 +1,7 @@
 #include "Game.h"
 #include "Player.h"
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <cstdlib>
 
@@ -12,7 +13,8 @@ Game::Game(const string& playerName) :
     treasureRoom("You found a room full of treasures."),
     lockedRoom("You entered a locked room."),
     secretRoom("You discovered a hidden secret room."),
-    exitHatch("")
+    exitHatch(""),
+    fileName("History.txt")
 {
     // Add exits to the rooms
     startRoom.addExit("north", "TreasureRoom");
@@ -32,6 +34,7 @@ Game::Game(const string& playerName) :
 }
 
 void Game::run() {
+	resetHistory();
     // Game loop
     string password;
     //An ASCII art of a treasure
@@ -62,6 +65,8 @@ ____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
         cout << "====================================================================================================================== " << endl;
         cout << "Player Name: " << player.getName() << endl;
         cout << "Current Location: " << player.getCurrentLocation() << endl;
+        writeHistory("Player Name : ",player.getName());
+        writeHistory("Current Location : ",player.getCurrentLocation());
         cout << "====================================================================================================================== " << endl;
         cout << "Inventory:" << endl;
         player.getInventory().display();
@@ -193,3 +198,37 @@ ____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
     }
 }
 
+
+
+void Game::writeHistory( string input,string optInput){
+	
+	//DEBUG OFSTREAM
+	//cout<<"History Updated\n\n";
+	ofstream outFile;
+	outFile.open(fileName,ios::app);
+	outFile<<input<<optInput<<endl;
+	outFile.close();
+	
+}
+
+
+void Game::resetHistory(){
+	ofstream outfile;
+	outfile.open(fileName);
+	outfile<<" ";
+	outfile.close();
+}
+void Game::readHistory(){
+	system("cls");
+	string line;
+	ifstream infile;
+	infile.open(fileName);
+	
+	while(getline(infile,line)){
+		cout<<line<<endl;
+	}
+}
+
+void Game::setPlayerName(const string& playerName){
+	player.setName(playerName);
+}

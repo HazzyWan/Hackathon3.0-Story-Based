@@ -24,4 +24,6 @@ LinkedList& Player::getInventory() {
 void Player::move(const string& newLocation) {
     currentLocation = newLocation;
 }
-
+void Player::setName(const string& playername){
+	name = playername;
+}

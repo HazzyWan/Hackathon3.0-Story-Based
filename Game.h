@@ -1,8 +1,10 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include <fstream>
 #include "Player.h"
 #include "Room.h"
+
 using namespace std;
 
 class Game {
@@ -13,10 +15,19 @@ private:
     Room lockedRoom;         // Locked room object
     Room secretRoom;         // Secret room object
     Room exitHatch;          // Exit hatch room object
+    string fileName;
 
 public:
     Game(const string& playerName);  // Constructor
+    
+    
     void run();  // Main game loop
+    void readHistory(const string& );
+    void writeHistory(string,string);
+    void resetHistory();
+    void readHistory();
+    void setPlayerName(const string&);
+    
 };
 
 #endif  // GAME_H

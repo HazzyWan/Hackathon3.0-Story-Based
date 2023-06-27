@@ -2,7 +2,6 @@
 #include "Game.h"
 
 using namespace std;
-
 int main() {
     bool quitGame = false;
 
@@ -19,14 +18,17 @@ int main() {
         cout << "=============================== Main Menu ===============================" << endl<<endl;
         cout << "\t\t\t    1. Start Game" << endl;
         cout << "\t\t\t    2. Quit" << endl;
-        cout << "\t\t\t    3. Last Game History" << endl;
+        cout << "\t\t\t    3. Last Game Histories" << endl;
+        //cout << "\t\t\t    4. Delete Game History" << endl;
 
         cout << "\t\t\t    Enter your choice: ";
 
         int choice;
         cin >> choice;
         cin.ignore();  // Ignore the newline character
-
+		
+		Game game(" ");
+		
         switch (choice) {
             case 1: {
             	system("cls");
@@ -45,7 +47,9 @@ int main() {
                 system("cls");
 
                 // Create a game object and start the game
-                Game game(playerName);
+//                Game game(playerName);
+				game.setPlayerName(playerName);
+                //game.writeHistory("Player Name : ",playerName);
                 game.run();
                 break;
             }
@@ -56,9 +60,11 @@ int main() {
             case 3:{
             	// THIS IS PLACEHOLDER. NOT IMPLEMENTED YET
             	cout<<"Last Game History : \n\n";
+            	game.readHistory();
             	quitGame = true;
 				break;
 			}
+
             default: {
                 cout << "Invalid choice. Please try again." << endl;
                 break;
@@ -70,7 +76,8 @@ int main() {
             system("cls");
         }
     }
-
     return 0;
 }
+
+
 
