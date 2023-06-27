@@ -1,27 +1,30 @@
-Player Name : KADA
+Player Name : amsdad
 Current Location : StartRoom
 Player moved north to Hallway
-Player Name : KADA
-Current Location : Hallway
-Player moved east to ArchiveRoom
-Player Name : KADA
-Current Location : ArchiveRoom
-Player Name : KADA
-Current Location : ArchiveRoom
-Player moved west to Hallway
-Player Name : KADA
+Player Name : amsdad
 Current Location : Hallway
 Player moved west to TreasureRoom
-Player Name : KADA
+Player Name : amsdad
 Current Location : TreasureRoom
 Player moved south to LockedRoom
-Player Name : KADA
+Player Name : amsdad
 Current Location : LockedRoom
 Player moved west to SecretRoom
-Player Name : KADA
+Player Name : amsdad
 Current Location : SecretRoom
 Player moved south to TheMorgue
-Player Name : KADA
+Player Name : amsdad
 Current Location : TheMorgue
-Player Name : KADA
+Player moved north to SecretRoom
+Player Name : amsdad
+Current Location : SecretRoom
+Player moved south to TheMorgue
+Player Name : amsdad
 Current Location : TheMorgue
+Player Name : amsdad
+Current Location : TheMorgue
+Player Name : amsdad
+Current Location : TheMorgue
+Player moved south to 
+Player Name : amsdad
+Current Location : 

@@ -42,6 +42,7 @@ Game::Game(const string& playerName) :
     // Insert items into room's inventory
     treasureRoom.getInventory().insert(new Item("Key", "A golden key"));
     archiveRoom.getInventory().insert(new Item("Book #1", "On the 24th of the Last Seed, prisoner Duncan of Skyrim was captured by the army’s elite \nteam in his house. The prisoner was charged with the murder of General Tullius \nduring the recent riot in the capital of Solitude. The prisoner is sentenced to death by the guillotine.Execution \nwill be held in 2 days, handled by the royal executioner.He will be stationed in the barracks to prepare for execution."));
+    morgue.getInventory().insert(new Item("Note on a dead body", "Soldier, this message must reach the High King as soon as possible. My suspicions of counselor Varan were true. \nHe is hiding something in his manor. The innocent prisoner charged for the murder of General Tullius must be saved. \nHe was falsely charged."));
 }
 
 void Game::run() {
@@ -50,6 +51,7 @@ void Game::run() {
     string password;
     bool keyRetrieved = false;  // Flag to track if the key has been retrieved
     bool book1Retrieved = false;
+    bool notesRetrieved = false;
 
     while (true) {
         // Print player's name, current location, and inventory
@@ -185,6 +187,43 @@ void Game::run() {
             cout << hallway.getDescription() << endl;
         }else if (currentLocation == "TheMorgue") {
             cout << morgue.getDescription() << endl;
+            //cout << "The room is filled with dead bodies."<<endl;
+            
+            bool validInput;
+            
+            //Handles function to Retrieve the Note on a Dead Body
+            if(!notesRetrieved){
+                string retrieveNotes;
+                validInput=false;
+                while(!validInput){
+                    cout << "You see a bloodied note on one of the bodies. Do you want to take it? (yes/no) :"<<endl;
+                    if (!notesRetrieved) {
+                        cin >> retrieveNotes;
+                    }
+                    else{
+                        retrieveNotes = "no";  // Assume the notes has already been retrieved
+                    }
+                    if (retrieveNotes == "yes") {
+                         Item* retrieveNotes = morgue.getInventory().getItem("Note on a dead body");
+                          if (retrieveNotes != nullptr) {
+                             player.getInventory().insert(retrieveNotes);
+                             morgue.getInventory().remove(retrieveNotes);
+                             cout << "You retrieved the Note from the dead boy and put it in your inventory!" << endl;
+                             notesRetrieved = true;  // Set the flag to true
+                         }else {
+                             cout << "There is no notes in the room." << endl;
+                         }
+                         validInput = true;
+                    }
+                    else if (retrieveNotes == "no") {
+                        cout << "You decide not to retrieve the Note on the Dead Body." << endl;
+                        validInput = true;
+                     }else {
+                        cout << "Invalid input. Please enter 'yes' or 'no'." << endl;
+                     }
+                }
+            
+            }
         }
 
         // Prompt for user input
@@ -321,6 +360,12 @@ void Game::run() {
 					    system("pause");
 					    system("cls");
 					    continue;
+					}
+					else if(input == "south"){
+						cout<<"You stare blankly at the pile of dead bodies by the corner..."<<endl;
+						system("pause");
+						system("cls");
+						continue;
 					}
 				}
 			}
