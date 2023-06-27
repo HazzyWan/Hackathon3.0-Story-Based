@@ -1,2 +1,55 @@
- Player Name : loba
+Player Name : sjndajda
 Current Location : StartRoom
+Player moved north to Hallway
+Player Name : sjndajda
+Current Location : Hallway
+Player Name : sjndajda
+Current Location : Hallway
+Player Name : sjndajda
+Current Location : Hallway
+Player moved south to StartRoom
+Player Name : sjndajda
+Current Location : StartRoom
+Player moved north to Hallway
+Player Name : sjndajda
+Current Location : Hallway
+Player Name : sjndajda
+Current Location : Hallway
+Player Name : sjndajda
+Current Location : Hallway
+Player Name : sjndajda
+Current Location : Hallway
+Player moved west to TreasureRoom
+Player Name : sjndajda
+Current Location : TreasureRoom
+Player moved east to Hallway
+Player Name : sjndajda
+Current Location : Hallway
+Player moved east to ArchiveRoom
+Player Name : sjndajda
+Current Location : ArchiveRoom
+Player Name : sjndajda
+Current Location : ArchiveRoom
+Player Name : sjndajda
+Current Location : ArchiveRoom
+Player Name : sjndajda
+Current Location : ArchiveRoom
+Player moved west to Hallway
+Player Name : sjndajda
+Current Location : Hallway
+Player moved west to TreasureRoom
+Player Name : sjndajda
+Current Location : TreasureRoom
+Player moved south to LockedRoom
+Player Name : sjndajda
+Current Location : LockedRoom
+Player moved west to SecretRoom
+Player Name : sjndajda
+Current Location : SecretRoom
+Player Name : sjndajda
+Current Location : SecretRoom
+Player moved north to ExitHatch
+Player Name : sjndajda
+Current Location : ExitHatch
+Player Name : sjndajda
+Current Location : ExitHatch

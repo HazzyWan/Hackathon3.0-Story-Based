@@ -38,6 +38,8 @@ public:
     Item* search(const string& itemName);
     // Display the items in the linked list
     void display();
+    
+    Item* getItem(const string& itemName);
 };
 
 #endif  // LINKEDLIST_H
