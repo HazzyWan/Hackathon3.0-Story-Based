@@ -1,4 +1,8 @@
 # The Lost
+Team Members :
+1. MUHAMMAD AQIF WAFIY BIN MOHD FARID | 165188
+2. MUHAMMAD DANISH AIMAN BIN MUHAMMAD NAZIR | 163371
+3. AHMAD HAZWAN SYAUQEE BIN HUSAIRI | 164485
 
 ## Description
 The Lost is a text-based adventure game where players navigate through various scenarios and make choices to progress in the story. The game immerses players in a fictional world filled with challenges, puzzles, and exciting encounters. It offers an engaging narrative with multiple paths and outcomes based on the player's decisions.
