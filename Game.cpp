@@ -8,6 +8,7 @@
 
 using namespace std;
 
+// Constructor that initializes some variables used in the game
 Game::Game(const string& playerName) :
     player(playerName, "StartRoom"),
     startRoom("The room is consumed by darkness, with only faint traces of light seeping through tiny cracks in the\nancient stone walls. The air hangs heavy with a damp, musty scent, and a chilling coldness\nemanates from the rough, unyielding floor, intensifying the sense of isolation and confinement."),
@@ -20,7 +21,7 @@ Game::Game(const string& playerName) :
     morgue("You found a morgue full of dead bodies."),
     fileName("History.txt")
 {
-    // Add exits to the rooms
+    // Add exits to the rooms. This is a modular approach. If new things wanted to be added, simply add here.
     startRoom.addExit("north", "Hallway");
     hallway.addExit("south", "StartRoom");
     hallway.addExit("west", "TreasureRoom");
@@ -36,10 +37,10 @@ Game::Game(const string& playerName) :
     secretRoom.addExit("south", "TheMorgue");
     morgue.addExit("north", "SecretRoom");
 
-    // Insert items into player's inventory
+    // Insert items into player's inventory (modular)
     player.getInventory().insert(new Item("Note", "Greetings, I know you might be confused as to why you are here. I can only tell you that someone \nwanted you dead. You will be sent to the Gulag tomorrow. Look for clues of the \nperson who did this to you.There is a key you must find in the treasure room. This already puts my life on the line."));
 
-    // Insert items into room's inventory
+    // Insert items into room's inventory (modular)
     treasureRoom.getInventory().insert(new Item("Key", "A golden key\n"));
     archiveRoom.getInventory().insert(new Item("Book #1", "On the 24th of the Last Seed, prisoner Duncan of Skyrim was captured by the army’s elite \nteam in his house. The prisoner was charged with the murder of General Tullius \nduring the recent riot in the capital of Solitude. The prisoner is sentenced to death by the guillotine.Execution \nwill be held in 2 days, handled by the royal executioner.He will be stationed in the barracks to prepare for execution.\n"));
     morgue.getInventory().insert(new Item("Note on a dead body", "Soldier, this message must reach the High King as soon as possible. My suspicions of counselor Varan were true. \nHe is hiding something in his manor. The innocent prisoner charged for the murder of General Tullius must be saved. \nHe was falsely charged.\n"));
@@ -47,11 +48,11 @@ Game::Game(const string& playerName) :
 
 void Game::run() {
     resetHistory();
-    // Game loop
+    // The Main Game loop
     string password;
     bool keyRetrieved = false;  // Flag to track if the key has been retrieved
-    bool book1Retrieved = false;
-    bool notesRetrieved = false;
+    bool book1Retrieved = false; // tracks if Report Book has been retrieved
+    bool notesRetrieved = false; // Tracks if Note from a dead body has been retrievd
 
     while (true) {
         // Print player's name, current location, and inventory
@@ -186,7 +187,7 @@ void Game::run() {
              }
            }
          }  
-    } else if(currentLocation == "Hallway") {  // Added handling for Hallway
+       }else if(currentLocation == "Hallway") {  // Added handling for Hallway
             Hall();
             cout << hallway.getDescription() << endl;
         }else if (currentLocation == "TheMorgue") {
@@ -269,7 +270,7 @@ void Game::run() {
                     }
                     continue;
                 }
-            } else if (currentLocation == "TreasureRoom") {
+            } else if (currentLocation == "TreasureRoom") {  // If player is in Treasure Room
                 if (treasureRoom.hasExit(input)) {
                     newRoom = treasureRoom.getExit(input);
                 } else {
@@ -277,7 +278,7 @@ void Game::run() {
                     writeHistory("No path towards ",input);  // Writes to History
                     continue;
                 }
-            } else if (currentLocation == "LockedRoom") {
+            } else if (currentLocation == "LockedRoom") {  // If player is in Locked Room
                 if (input == "west") {
                     if (player.getInventory().search("Key") != nullptr) {
                         newRoom = lockedRoom.getExit(input);
@@ -295,7 +296,7 @@ void Game::run() {
                         continue;
                     }
                 }
-            } else if (currentLocation == "SecretRoom") {
+            } else if (currentLocation == "SecretRoom") { //If player is in Secret Room
                 if (secretRoom.hasExit(input)) {
                     newRoom = secretRoom.getExit(input);
                 } else {
@@ -303,7 +304,7 @@ void Game::run() {
                     writeHistory("No path towards ",input);  // Writes to History
                     continue;
                 }
-            } else if (currentLocation == "ExitHatch") {
+            } else if (currentLocation == "ExitHatch") {  //If player is in Exit Hatch 
                 if (exitHatch.hasExit(input)) {
                     newRoom = exitHatch.getExit(input);
                 } else {
@@ -311,8 +312,8 @@ void Game::run() {
                     writeHistory("No path towards ",input);  // Writes to History
                     continue;
                 }
-            } else if (currentLocation == "ArchiveRoom") {
-                if (archiveRoom.hasExit(input)) {  // Added handling for ArchiveRoom exits
+            } else if (currentLocation == "ArchiveRoom") {  //If player is in Archive Room
+                if (archiveRoom.hasExit(input)) {  // Added handling for Archive Room exits
                     newRoom = archiveRoom.getExit(input);
                 } else {
                 	if (input == "north") {
@@ -354,7 +355,7 @@ void Game::run() {
                     continue;
                  }
                 }
-            } else if(currentLocation == "TheMorgue"){
+            } else if(currentLocation == "TheMorgue"){  //If player is in The Morgue
             	if(morgue.hasExit(input)){
             		newRoom = morgue.getExit(input);
 				}else{
@@ -391,14 +392,14 @@ void Game::run() {
 					}
 				}
 			}
-
+			// Moves player to the new room based on input
             player.move(newRoom);
             cout << "You moved " << input << " to " << newRoom << endl;
-            writeHistory("Player moved ", input + " to " + newRoom);
+            writeHistory("Player moved ", input + " to " + newRoom);  // Writes to History
             system("pause");
             system("cls");
         } else {
-            cout << "Invalid input. Please enter a valid direction or 'quit'." << endl;
+            cout << "Invalid input. Please enter a valid direction or 'quit'." << endl;  // Input Validation
         }
     }
 }
