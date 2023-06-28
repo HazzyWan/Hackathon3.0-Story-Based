@@ -1,83 +1,70 @@
 #include <iostream>
+#include <limits>
 #include "Game.h"
+#include "Art.h"
 
 using namespace std;
+
+/*void clearInputBuffer() {
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+}*/
+
 int main() {
     bool quitGame = false;
 
-    while (!quitGame) {
-    	cout << " $$$$$$$$\\ $$\\   $$\\ $$$$$$$$\\       $$\\       $$$$$$\\   $$$$$$\\ $$$$$$$$\\" << endl;
-        cout <<   " \\__$$  __|$$ |  $$ |$$  _____|      $$ |     $$  __$$\\ $$  __$$\\__$$  __|" << endl;
-        cout <<     "    $$ |   $$ |  $$ |$$ |            $$ |     $$ /  $$ |$$ /  \\__|  $$ | "  << endl;
-        cout <<     "    $$ |   $$$$$$$$ |$$$$$\           $$ |     $$ |  $$ |\\$$$$$$\\    $$ | "  << endl;
-        cout <<     "    $$ |   $$  __$$ |$$  __|         $$ |     $$ |  $$ | \\____$$\\   $$ | "  <<endl;
-        cout <<     "    $$ |   $$ |  $$ |$$ |            $$ |     $$ |  $$ |$$\\   $$ |  $$ | "  <<endl;
-        cout <<     "    $$ |   $$ |  $$ |$$$$$$$$\\       $$$$$$$$\\ $$$$$$  |\\$$$$$$  |  $$ | "  <<endl;
-        cout <<     "    \\__|   \\__|  \\__|\\________|      \\________|\\______/  \\______/   \\__| "  <<endl;
-                                                                        
-        cout << "=============================== Main Menu ===============================" << endl<<endl;
+    do {
+        Title();
+        cout << "=============================== Main Menu ===============================" << endl << endl;
         cout << "\t\t\t    1. Start Game" << endl;
         cout << "\t\t\t    2. Quit" << endl;
-        cout << "\t\t\t    3. Last Game Histories" << endl;
-        //cout << "\t\t\t    4. Delete Game History" << endl;
+        cout << "\t\t\t    3. Last Game History" << endl;
 
         cout << "\t\t\t    Enter your choice: ";
 
-        int choice;
-        cin >> choice;
-        cin.ignore();  // Ignore the newline character
-		
-		Game game(" ");
-		
-        switch (choice) {
-            case 1: {
-            	system("cls");
-                cout << "You awake in a dark room, not knowing what happened to you. As you look around, you see a letter laid on the floor." << endl;
-                system("pause");
-                string playerName;
-                while (playerName.empty()) {
-                    cout << "What is your name? " << endl;
-                    getline(cin, playerName);
+        string choice;
+        getline(cin, choice);
+        //clearInputBuffer();
 
-                    if (playerName.empty()) {
-                        cout << "Please enter a valid name." << endl;
-                    }
+        Game game("");
+
+        if (choice == "1") {
+            system("cls");
+            cout << "You awake in a dark room, not knowing what happened to you. As you look around, you see a note laid on the floor in \nfront of you." << endl;
+            string playerName;
+            while (playerName.empty()) {
+                system("pause");
+                cout << "What is your name? " << endl;
+                getline(cin, playerName);
+
+                if (playerName.empty()) {
+                    cout << "Please enter a valid name." << endl;
                 }
-                system("pause");
-                system("cls");
+            }
+            //system("pause");
+            system("cls");
 
-                // Create a game object and start the game
-//                Game game(playerName);
-				game.setPlayerName(playerName);
-                //game.writeHistory("Player Name : ",playerName);
-                game.run();
-                break;
-            }
-            case 2: {
-                quitGame = true;
-                break;
-            }
-            case 3:{
-            	// THIS IS PLACEHOLDER. NOT IMPLEMENTED YET
-            	cout<<"Last Game History : \n\n";
-            	game.readHistory();
-            	quitGame = true;
-				break;
-			}
-
-            default: {
-                cout << "Invalid choice. Please try again." << endl;
-                break;
-            }
+            game.setPlayerName(playerName);
+            game.run();
+        }
+        else if (choice == "2") {
+            quitGame = true;
+        }
+        else if (choice == "3") {
+            cout << "Last Game History : \n\n";
+            game.readHistory();
+            system("pause");
+        }
+        else {
+            cout << "Invalid choice. Please try again." << endl;
         }
 
         if (!quitGame) {
-            system("pause");
+            //system("pause");
             system("cls");
         }
-    }
+    } while (!quitGame);
+
     return 0;
 }
-
-
 

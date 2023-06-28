@@ -15,6 +15,9 @@ private:
     Room lockedRoom;         // Locked room object
     Room secretRoom;         // Secret room object
     Room exitHatch;          // Exit hatch room object
+    Room archiveRoom;        // Archive room object
+    Room hallway;            // Hallway room object
+    Room morgue;             // Morgue room object
     string fileName;
 
 public:
@@ -22,8 +25,8 @@ public:
     
     
     void run();  // Main game loop
-    void readHistory(const string& );
-    void writeHistory(string,string);
+    void readHistory(const string&);
+    void writeHistory(string, string);
     void resetHistory();
     void readHistory();
     void setPlayerName(const string&);

@@ -70,3 +70,18 @@ void LinkedList::display() {
     }
 }
 
+
+Item* LinkedList::getItem(const string& itemName) {
+    Node* current = head;
+
+    while (current != nullptr) {
+        if (current->data->getName() == itemName) {
+            // Item found, return a pointer to it
+            return current->data;
+        }
+        current = current->next;
+    }
+    // Item not found
+    return nullptr;
+}
+

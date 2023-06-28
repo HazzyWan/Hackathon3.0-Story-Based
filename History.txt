@@ -1,2 +1,144 @@
- Player Name : loba
+ 
+
+Player Name : Aqif
 Current Location : StartRoom
+Moved towards direction : west
+No path towards west
+ 
+
+Player Name : Aqif
+Current Location : StartRoom
+Moved towards direction : north
+Player moved north to Hallway
+ 
+
+Player Name : Aqif
+Current Location : Hallway
+Moved towards direction : east
+Player moved east to ArchiveRoom
+ 
+
+Player Name : Aqif
+Current Location : ArchiveRoom
+Player took : Report Book from Archive Room
+Moved towards direction : north
+No path towards north
+ 
+
+Player Name : Aqif
+Current Location : ArchiveRoom
+Moved towards direction : west
+Player moved west to Hallway
+ 
+
+Player Name : Aqif
+Current Location : Hallway
+Moved towards direction : north
+ 
+
+Player Name : Aqif
+Current Location : Hallway
+Moved towards direction : west
+Player moved west to TreasureRoom
+ 
+
+Player Name : Aqif
+Current Location : TreasureRoom
+Moved towards direction : south
+Player moved south to LockedRoom
+ 
+
+Player Name : Aqif
+Current Location : LockedRoom
+Moved towards direction : east
+No path towards east
+ 
+
+Player Name : Aqif
+Current Location : LockedRoom
+Moved towards direction : west
+ 
+
+Player Name : Aqif
+Current Location : LockedRoom
+Moved towards direction : north
+Player moved north to TreasureRoom
+ 
+
+Player Name : Aqif
+Current Location : TreasureRoom
+Player Received : Key from Treasure Room
+Moved towards direction : south
+Player moved south to LockedRoom
+ 
+
+Player Name : Aqif
+Current Location : LockedRoom
+Moved towards direction : west
+Player moved west to SecretRoom
+ 
+
+Player Name : Aqif
+Current Location : SecretRoom
+Moved towards direction : west
+No path towards west
+ 
+
+Player Name : Aqif
+Current Location : SecretRoom
+Moved towards direction : north
+Player moved north to ExitHatch
+ 
+
+Player Name : Aqif
+Current Location : ExitHatch
+Moved towards direction : south
+Player moved south to SecretRoom
+ 
+
+Player Name : Aqif
+Current Location : SecretRoom
+Moved towards direction : south
+Player moved south to TheMorgue
+ 
+
+Player Name : Aqif
+Current Location : TheMorgue
+Player took :Note on a dead body from The Morgue.
+Moved towards direction : east
+No path towards east
+ 
+
+Player Name : Aqif
+Current Location : TheMorgue
+Moved towards direction : west
+No path towards west
+ 
+
+Player Name : Aqif
+Current Location : TheMorgue
+Moved towards direction : south
+No path towards south
+ 
+
+Player Name : Aqif
+Current Location : TheMorgue
+Moved towards direction : north
+Player moved north to SecretRoom
+ 
+
+Player Name : Aqif
+Current Location : SecretRoom
+Moved towards direction : north
+Player moved north to ExitHatch
+ 
+
+Player Name : Aqif
+Current Location : ExitHatch
+Moved towards direction : north
+No path towards north
+ 
+
+Player Name : Aqif
+Current Location : ExitHatch
+Player Exited Exit Hatch using using the correct pasword : Game Over...
