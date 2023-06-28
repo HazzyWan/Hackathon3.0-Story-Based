@@ -37,5 +37,4 @@ By using linked lists, the game can easily handle operations such as adding or r
 
 
 ## Screenshots
-
-![](../master/images/The Lost.png)
+![The Lost](https://github.com/HazzyWan/Hackathon3.0-Story-Based/assets/52166616/1ab73589-21f0-4320-9b07-ecebeb0df994)
