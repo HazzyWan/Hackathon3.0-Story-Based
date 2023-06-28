@@ -10,6 +10,7 @@ The Lost is a text-based adventure game where players navigate through various s
 - Decision-based gameplay with consequences
 - Object-oriented design for modularity and extensibility
 - Linked lists for efficient management of game objects
+- History file that tracks the player's current location and actions
 
 ## How to Play
 1. Launch the game on your preferred platform.
