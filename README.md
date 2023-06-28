@@ -38,3 +38,5 @@ By using linked lists, the game can easily handle operations such as adding or r
 
 ## Screenshots
 ![The Lost](https://github.com/HazzyWan/Hackathon3.0-Story-Based/assets/52166616/1ab73589-21f0-4320-9b07-ecebeb0df994)
+![Treasure](https://github.com/HazzyWan/Hackathon3.0-Story-Based/assets/52166616/87229ad1-87aa-4e4b-895b-70a7eddb3d80)
+
