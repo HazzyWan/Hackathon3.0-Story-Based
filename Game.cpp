@@ -40,9 +40,9 @@ Game::Game(const string& playerName) :
     player.getInventory().insert(new Item("Note", "Greetings, I know you might be confused as to why you are here. I can only tell you that someone \nwanted you dead. You will be sent to the Gulag tomorrow. Look for clues of the \nperson who did this to you.There is a key you must find in the treasure room. This already puts my life on the line."));
 
     // Insert items into room's inventory
-    treasureRoom.getInventory().insert(new Item("Key", "A golden key"));
-    archiveRoom.getInventory().insert(new Item("Book #1", "On the 24th of the Last Seed, prisoner Duncan of Skyrim was captured by the army’s elite \nteam in his house. The prisoner was charged with the murder of General Tullius \nduring the recent riot in the capital of Solitude. The prisoner is sentenced to death by the guillotine.Execution \nwill be held in 2 days, handled by the royal executioner.He will be stationed in the barracks to prepare for execution."));
-    morgue.getInventory().insert(new Item("Note on a dead body", "Soldier, this message must reach the High King as soon as possible. My suspicions of counselor Varan were true. \nHe is hiding something in his manor. The innocent prisoner charged for the murder of General Tullius must be saved. \nHe was falsely charged."));
+    treasureRoom.getInventory().insert(new Item("Key", "A golden key\n"));
+    archiveRoom.getInventory().insert(new Item("Book #1", "On the 24th of the Last Seed, prisoner Duncan of Skyrim was captured by the army’s elite \nteam in his house. The prisoner was charged with the murder of General Tullius \nduring the recent riot in the capital of Solitude. The prisoner is sentenced to death by the guillotine.Execution \nwill be held in 2 days, handled by the royal executioner.He will be stationed in the barracks to prepare for execution.\n"));
+    morgue.getInventory().insert(new Item("Note on a dead body", "Soldier, this message must reach the High King as soon as possible. My suspicions of counselor Varan were true. \nHe is hiding something in his manor. The innocent prisoner charged for the murder of General Tullius must be saved. \nHe was falsely charged.\n"));
 }
 
 void Game::run() {
@@ -58,6 +58,7 @@ void Game::run() {
         cout << "====================================================================================================================== " << endl;
         cout << "Player Name: " << player.getName() << endl;
         cout << "Current Location: " << player.getCurrentLocation() << endl;
+        writeHistory(" ","\n");
         writeHistory("Player Name : ", player.getName());
         writeHistory("Current Location : ", player.getCurrentLocation());
         cout << "====================================================================================================================== " << endl;
@@ -92,6 +93,7 @@ void Game::run() {
                             player.getInventory().insert(retrievedKey);
                             treasureRoom.getInventory().remove(retrievedKey);
                             cout << "You retrieved the key!" << endl;
+                            writeHistory("Player Received : ","Key from Treasure Room");
                             keyRetrieved = true;  // Set the flag to true
                       } else {
                             cout << "There is no key in the room." << endl;
@@ -117,6 +119,7 @@ void Game::run() {
 
             if (password == "VARAN") {
                 cout << "Congratulations! You have entered the correct password. You successfully escaped!" << endl;
+                writeHistory("Player Exited Exit Hatch using using the correct pasword : ","Game Over...");
                 break;
             } else {
                 cout << "Wrong password. The Exit Hatch remains locked." << endl;//Wrong password will cause the player to choose which direction to explore again.
@@ -169,6 +172,7 @@ void Game::run() {
                      player.getInventory().insert(retrievedBook1);
                      archiveRoom.getInventory().remove(retrievedBook1);
                      cout << "You retrieved the Book and put it in your inventory!" << endl;
+                     writeHistory("Player took : ","Report Book from Archive Room");
                      book1Retrieved = true;  // Set the flag to true
                  } else {
                      cout << "There is no book in the room." << endl;
@@ -209,6 +213,7 @@ void Game::run() {
                              player.getInventory().insert(retrieveNotes);
                              morgue.getInventory().remove(retrieveNotes);
                              cout << "You retrieved the Note from the dead boy and put it in your inventory!" << endl;
+                             writeHistory("Player took :","Note on a dead body from The Morgue.");
                              notesRetrieved = true;  // Set the flag to true
                          }else {
                              cout << "There is no notes in the room." << endl;
@@ -232,11 +237,12 @@ void Game::run() {
         string input;
         cin >> input;
         system("cls");
-
+		
         // Process user input
         if (input == "quit") {
             break;  // Exit the game
         } else if (input == "north" || input == "south" || input == "east" || input == "west" || input == "exit") {
+        	writeHistory("Moved towards direction : ",input);
             string newRoom;
             if (currentLocation == "StartRoom") {
                 if (startRoom.hasExit(input)) {
@@ -244,18 +250,22 @@ void Game::run() {
                 } else {
                     if (input == "south") {
                         cout << "You see a pile of old papers scattered on the floor, but there is no exit in that direction." << endl;
+                        writeHistory("No path towards ",input);  // Writes to History
                         system("pause");
                         system("cls");
                     } else if (input == "west") {
                         cout << "The wall to the west is covered in dirt and grime, with no visible exit." << endl;
+                        writeHistory("No path towards ",input);  // Writes to History
                         system("pause");
                         system("cls");
                     } else if (input == "east") {
                         cout << "A solid stone wall blocks your path to the east. There is no exit in that direction." << endl;
+                        writeHistory("No path towards ",input);  // Writes to History
                         system("pause");
                         system("cls");
                     } else {
                         cout << "There is no exit in that direction." << endl;
+                        writeHistory("No Path towards ",input);  // Writes to History
                     }
                     continue;
                 }
@@ -264,6 +274,7 @@ void Game::run() {
                     newRoom = treasureRoom.getExit(input);
                 } else {
                     cout << "There is no exit in that direction." << endl;
+                    writeHistory("No path towards ",input);  // Writes to History
                     continue;
                 }
             } else if (currentLocation == "LockedRoom") {
@@ -280,6 +291,7 @@ void Game::run() {
                         newRoom = lockedRoom.getExit(input);
                     } else {
                         cout << "There is no exit in that direction." << endl;
+                        writeHistory("No path towards ",input);  // Writes to History
                         continue;
                     }
                 }
@@ -288,6 +300,7 @@ void Game::run() {
                     newRoom = secretRoom.getExit(input);
                 } else {
                     cout << "There is no exit in that direction." << endl;
+                    writeHistory("No path towards ",input);  // Writes to History
                     continue;
                 }
             } else if (currentLocation == "ExitHatch") {
@@ -295,6 +308,7 @@ void Game::run() {
                     newRoom = exitHatch.getExit(input);
                 } else {
                     cout << "There is no exit in that direction." << endl;
+                    writeHistory("No path towards ",input);  // Writes to History
                     continue;
                 }
             } else if (currentLocation == "ArchiveRoom") {
@@ -303,21 +317,25 @@ void Game::run() {
                 } else {
                 	if (input == "north") {
                        cout << "You see a wall with a large painting depicting a mysterious figure in a cloak. There is no path there." << endl;
+                       writeHistory("No path towards ",input);  // Writes to History
                        system("pause");
                        system("cls");
                        continue;
 				  } else if (input == "south") {
-                       cout << "As you head south, you come across a small reading nook with a comfortable chair and a \nbookshelf filled with ancient tomes." << endl;
+                       cout << "As you head south, you come across a small reading nook with a comfortable chair and a \nbookshelf filled with ancient tomes. It is a dead end still." << endl;
+                       writeHistory("No path towards ",input);  // Writes to History
                        system("pause");
                        system("cls");
                        continue;
                   } else if (input == "east") {
-                       cout << "You notice an ornate wooden door with intricate carvings leading to another room." << endl;
+                       cout << "You notice an ornate wooden door with intricate carvings leading to another room. But it is blocked by debris." << endl;
+                       writeHistory("No path towards ",input);  // Writes to History
                        system("pause");
                        system("cls");
                        continue;
                   } else {
                     cout << "There is no exit in that direction." << endl;
+                    writeHistory("No path towards ",input);  // Writes to History
                     continue;
                 }
                }
@@ -332,6 +350,7 @@ void Game::run() {
                 		continue;
 					}else{
                     cout << "There is no exit in that direction." << endl;
+                    writeHistory("No path towards ",input);  // Writes to History
                     continue;
                  }
                 }
@@ -346,6 +365,7 @@ void Game::run() {
 					  system("pause");
 					  system("cls");
 					  Scare();
+					  writeHistory("No path towards ",input);  // Writes to History
 					  system("pause");
 					  system("cls");
 					  continue;
@@ -357,12 +377,14 @@ void Game::run() {
                         system("pause");
 					    system("cls");
 					    Scare2();
+					    writeHistory("No path towards ",input);  // Writes to History
 					    system("pause");
 					    system("cls");
 					    continue;
 					}
 					else if(input == "south"){
 						cout<<"You stare blankly at the pile of dead bodies by the corner..."<<endl;
+						writeHistory("No path towards ",input);  // Writes to History
 						system("pause");
 						system("cls");
 						continue;

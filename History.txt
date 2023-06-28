@@ -1,2 +1,132 @@
-Player Name : kolar
+ 
+
+Player Name : KALIBRE
 Current Location : StartRoom
+Moved towards direction : west
+No path towards west
+ 
+
+Player Name : KALIBRE
+Current Location : StartRoom
+Moved towards direction : east
+No path towards east
+ 
+
+Player Name : KALIBRE
+Current Location : StartRoom
+Moved towards direction : south
+No path towards south
+ 
+
+Player Name : KALIBRE
+Current Location : StartRoom
+Moved towards direction : north
+Player moved north to Hallway
+ 
+
+Player Name : KALIBRE
+Current Location : Hallway
+Moved towards direction : east
+Player moved east to ArchiveRoom
+ 
+
+Player Name : KALIBRE
+Current Location : ArchiveRoom
+Player took : Report Book from Archive Room
+Moved towards direction : north
+No path towards north
+ 
+
+Player Name : KALIBRE
+Current Location : ArchiveRoom
+Moved towards direction : east
+No path towards east
+ 
+
+Player Name : KALIBRE
+Current Location : ArchiveRoom
+ 
+
+Player Name : KALIBRE
+Current Location : ArchiveRoom
+Moved towards direction : west
+Player moved west to Hallway
+ 
+
+Player Name : KALIBRE
+Current Location : Hallway
+Moved towards direction : west
+Player moved west to TreasureRoom
+ 
+
+Player Name : KALIBRE
+Current Location : TreasureRoom
+Player Received : Key from Treasure Room
+Moved towards direction : north
+No path towards north
+ 
+
+Player Name : KALIBRE
+Current Location : TreasureRoom
+Moved towards direction : south
+Player moved south to LockedRoom
+ 
+
+Player Name : KALIBRE
+Current Location : LockedRoom
+Moved towards direction : west
+Player moved west to SecretRoom
+ 
+
+Player Name : KALIBRE
+Current Location : SecretRoom
+Moved towards direction : west
+No path towards west
+ 
+
+Player Name : KALIBRE
+Current Location : SecretRoom
+Moved towards direction : west
+No path towards west
+ 
+
+Player Name : KALIBRE
+Current Location : SecretRoom
+Moved towards direction : south
+Player moved south to TheMorgue
+ 
+
+Player Name : KALIBRE
+Current Location : TheMorgue
+Player took :Note on a dead body from The Morgue.
+Moved towards direction : west
+No path towards west
+ 
+
+Player Name : KALIBRE
+Current Location : TheMorgue
+Moved towards direction : east
+No path towards east
+ 
+
+Player Name : KALIBRE
+Current Location : TheMorgue
+Moved towards direction : south
+No path towards south
+ 
+
+Player Name : KALIBRE
+Current Location : TheMorgue
+Moved towards direction : north
+Player moved north to SecretRoom
+ 
+
+Player Name : KALIBRE
+Current Location : SecretRoom
+Moved towards direction : north
+Player moved north to ExitHatch
+ 
+
+Player Name : KALIBRE
+Current Location : ExitHatch
+Player Exited Exit Hatch using using the correct pasword : Game Over...

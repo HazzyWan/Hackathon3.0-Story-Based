@@ -18,7 +18,7 @@ int main() {
         cout << "=============================== Main Menu ===============================" << endl << endl;
         cout << "\t\t\t    1. Start Game" << endl;
         cout << "\t\t\t    2. Quit" << endl;
-        cout << "\t\t\t    3. Last Game Histories" << endl;
+        cout << "\t\t\t    3. Last Game History" << endl;
 
         cout << "\t\t\t    Enter your choice: ";
 
