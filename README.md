@@ -38,4 +38,4 @@ By using linked lists, the game can easily handle operations such as adding or r
 
 ## Screenshots
 
-![My Remote Image](https://www.dropbox.com/s/cppv6y4bubrscr0/The%20Lost.jpg?dl=0)
+![](![](../Hackathon3.0-Story-Based/images/The Lost.png)
