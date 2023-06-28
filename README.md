@@ -34,3 +34,8 @@ The game utilizes object-oriented concepts to organize and structure the codebas
 Linked lists play a crucial role in managing game objects efficiently. For example, a linked list can be used to represent the inventory of the player, where each item is stored as a node in the list. This data structure allows for dynamic addition and removal of items, ensuring efficient memory utilization.
 
 By using linked lists, the game can easily handle operations such as adding or removing items from the inventory, iterating over the items, or searching for a specific item. The linked list's flexibility and dynamic nature make it an ideal choice for managing collections of objects in the game.
+
+
+## Screenshots
+
+![My Remote Image](https://www.dropbox.com/s/cppv6y4bubrscr0/The%20Lost.jpg?dl=0)
