@@ -42,7 +42,7 @@ Game::Game(const string& playerName) :
     // Insert items into room's inventory
     treasureRoom.getInventory().insert(new Item("Key", "A golden key\n"));
     archiveRoom.getInventory().insert(new Item("Book #1", "On the 24th of the Last Seed, prisoner Duncan of Skyrim was captured by the army’s elite \nteam in his house. The prisoner was charged with the murder of General Tullius \nduring the recent riot in the capital of Solitude. The prisoner is sentenced to death by the guillotine.Execution \nwill be held in 2 days, handled by the royal executioner.He will be stationed in the barracks to prepare for execution.\n"));
-    morgue.getInventory().insert(new Item("Note on a dead body", "Soldier, this message must reach the High King as soon as possible. My suspicions of counselor Varan were true. \nHe is hiding something in his manor. The innocent prisoner charged for the murder of General Tullius must be saved. \nHe was falsely charged.\n"));
+    morgue.getInventory().insert(new Item("Note on a dead body", "Soldier, this message must reach the High King as soon as possible. My suspicions of counselor Varan were \ntrue. He is hiding something in his manor. The innocent prisoner charged for the murder of General Tullius must be saved. \nHe was falsely charged.\n"));
 }
 
 void Game::run() {
@@ -114,16 +114,30 @@ void Game::run() {
         } else if (currentLocation == "ExitHatch") {
             cout << exitHatch.getDescription() << endl;
             cout << "To open the Exit Hatch, enter the password: ";// Must enter the correct password so the player can proceed to escape
-
+            string getClue;
+            bool validInput = false;
             cin >> password;
 
             if (password == "VARAN") {
+            	Castle();
                 cout << "Congratulations! You have entered the correct password. You successfully escaped!" << endl;
                 writeHistory("Player Exited Exit Hatch using using the correct pasword : ","Game Over...");
+                system("pause");
                 break;
             } else {
                 cout << "Wrong password. The Exit Hatch remains locked." << endl;//Wrong password will cause the player to choose which direction to explore again.
-                system("pause");
+                cout << "Do you need a hint?(yes/no)"<<endl;
+                cin >> getClue;
+                if(getClue == "yes"){
+                	cout<<"*The person who is behind all this (all caps)*"<<endl;
+                	validInput = true;
+                	system("pause");
+				}else if(getClue == "no"){
+					cout<<"You decide not to look at the hint for now."<<endl;
+					validInput = true;
+				}else {
+               cout << "Invalid input. Please enter 'yes' or 'no'." << endl;
+                }
                 
             }
         } else if (currentLocation == "ArchiveRoom") {
@@ -141,7 +155,7 @@ void Game::run() {
 
              if (readNotes == "yes") {
                cout << "You carefully read the notes and find a clue:" << endl;
-               cout << "In order to uncover the hidden secret, look closely at the ancient shelf." << endl;
+               ScrollArchive();
                validInput = true;
                system("pause");
            } else if (readNotes == "no") {

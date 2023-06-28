@@ -8,6 +8,8 @@ void Hall();
 void Map();
 void Scare();
 void Scare2();
+void Castle();
+void ScrollArchive();
 
 #endif // ART_H
 
