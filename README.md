@@ -38,4 +38,4 @@ By using linked lists, the game can easily handle operations such as adding or r
 
 ## Screenshots
 
-![](../Hackathon3.0-Story-Based/images/The Lost.png)
+![](../master/images/The Lost.png)
